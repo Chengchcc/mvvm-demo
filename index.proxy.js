@@ -1,4 +1,4 @@
-    import MVVM from './js/mvvm'
+    import MVVM from './js/proxy/mvvm'
     var app = new MVVM({
         el: '#app',
         data: {

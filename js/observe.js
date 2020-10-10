@@ -48,22 +48,20 @@ export default class Observe {
 
 
 // 消息订阅器Dep，订阅器Dep主要负责收集订阅者，然后再属性变化的时候执行对应订阅者的更新函数
-export function Dep () {
-    this.subs = [];
-}
-Dep.prototype = {
+export class Dep {
+  subs = []
   /**
    * [订阅器添加订阅者]
    * @param  {[Watcher]} sub [订阅者]
    */
-    addSub: function(sub) {
-        this.subs.push(sub);
-    },
+  addSub(sub){
+    this.subs.push(sub)
+  }
   // 通知订阅者数据变更
-    notify: function() {
-        this.subs.forEach(function(sub) {
-            sub.update();
-        });
-    }
-};
+  notify(){
+    this.subs.forEach(sub=>{
+      sub.update()
+    })
+  }
+}
 Dep.target = null;
